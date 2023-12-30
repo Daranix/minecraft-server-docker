@@ -1,0 +1,18 @@
+version: "2.1"
+services:
+  minecraft:
+    image: daranix/minecraft-server
+    container_name: minecraft
+    #privileged: false
+    environment:
+      #- GID=1000
+      #- UID=1000
+      - MINECRAFT_VERSION=1.20.4
+      - RUNTIME_FLAVOR=papermc
+      - FLAVOR_VERSION=364
+      - EULA=true
+    volumes:
+      - ./data:/app/data
+    ports:
+      - 25565:25565
+    restart: unless-stopped
